@@ -1,0 +1,88 @@
+.container {
+    display: flex;
+}
+
+.left {
+    width: 15%; /* 目次の幅を設定 */
+}
+
+.right {
+    width: 85%; /* メインの記事の幅を設定 */
+}
+
+th,td {
+    border: solid 1px;              /* 枠線指定 */
+}
+
+table {
+    border-collapse:  collapse;     /* セルの線を重ねる */
+}
+
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: inline; /* 改行をなくすためにインライン表示に変更 */
+}
+  
+li.min {
+    font-size: 24px;
+    display: inline; /* 改行をなくすためにインライン表示に変更 */
+}
+  
+li.desti {
+      font-size: 12px;
+      padding-left: 2px;
+      display: inline; /* 改行をなくすためにインライン表示に変更 */
+}
+
+.tooltip {
+    position: relative;
+    cursor: pointer;
+}
+  
+/* ツールチップ全体の設定 */
+.tooltip::before,
+.tooltip::after {
+    position: absolute;
+    opacity: 0;
+    transition: all 0.3s;
+}
+  
+/* 吹き出しのひげ部分 */
+.tooltip::before {
+    content: "";
+    border: 10px solid transparent;
+    border-top-color: #080; /* 下向きの三角形の色 */
+    bottom: calc(100% - 10px); /* 下端に対して上からの位置を指定 */
+    left: 50%;
+    transform: translateX(-50%);
+}
+  
+/* 吹き出しの本体 */
+.tooltip::after {
+    content: attr(data-tooltip);
+    width: max-content;
+    padding: 7px 13px;
+    background: #fff;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    bottom: calc(100% - 0px); /* 下端に対して上からの位置を指定 */
+    left: 50%;
+    transform: translateX(-50%);
+}
+  
+/* マウスホバーしたときの設定 */
+.tooltip:hover::before{
+    bottom: calc(100% - 20px); /* 下端に対して上からの位置を指定 */
+    opacity: 1;
+}
+  
+.tooltip:hover::after{
+    border-top-color: transparent; /* 逆向きの三角形にするために変更 */
+    border-bottom-color: #000; /* 逆向きの三角形にするために変更 */
+    bottom: calc(100% + 10px); /* 下端に対して上からの位置を指定 */
+    opacity: 1;
+}
