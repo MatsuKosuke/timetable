@@ -113,7 +113,7 @@ with open(txt_path, 'w') as f:
         f.write('<ul>\n')
         f.write(f'<li>[{station_no}] {station_name}')
         for link, file in zip(station_link, file_list):
-            f.write(f' <a href="駅時刻表{file}.html">{link}</a>')
+            f.write(f' <a href="Station{file}.html">{link}</a>')
         f.write('</li>\n')
         f.write('</ul>\n')
     f.write('</nav>\n')
